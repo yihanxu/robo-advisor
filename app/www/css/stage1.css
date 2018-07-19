@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+.chat-background {
+    /*position: absolute;*/
+    /*top: 0;*/
+    width: 100%;
+    height: 100%;
+    background: rgba(207, 217, 218, 0.7);
+    /*height: auto;*/
+    /*background-size: auto 100%;*/
+}
+
+.chat-section {
+    /*position: absolute;*/
+    /*top: 0px;*/
+
+    /*height: calc(100vh - 200px);*/
+    padding: 3rem 2rem;
+    overflow: hidden;
+}
+
+.chat-content {
+    /*top: 0;*/
+    /*height: 100%;*/
+    /*min-height: calc(100vh - 300px);*/
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-width: 300px;
+    padding-top: 50px;
+    /*position: relative;*/
+    /*top: 50%;*/
+    /*transform: translateY(-50%);*/
+
+    /*overflow-x: hidden;*/
+    /*overflow-y: auto;*/
+
+}
+
+.robot-section {
+    /*position: absolute;*/
+    /*top:0px;*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    overflow: hidden;
+    pointer-events: none;
+    padding: 3rem 1rem;
+
+    /*z-index: 100;*/
+}
+
+@media (min-width: 577px) {
+
+    .fixed-position {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.robot-content {
+    /*top: 0;*/
+    /*height: calc(100vh - 200px);*/
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+msg-row {
+    margin-bottom: 10px;
+}
+
+.msg-row::before, .msg-row::after {
+    content: " ";
+    display: table;
+}
+
+.msg-row::after {
+    clear: both;
+}
+
+.msg-left {
+    margin-bottom: 20px;
+}
+
+.msg-left + .msg-left {
+    margin-top: -15px;
+}
+
+.msg-right {
+    margin-bottom: 20px;
+}
+
+.msg-right + .msg-right {
+    margin-top: -15px;
+}
+
+.msg {
+    display: inline-block;
+    padding: 9px 14px;
+    max-width: 65%;
+    overflow: hidden;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 24px;
+    background: white;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(102, 102, 102, 0.1);
+    box-shadow: 5px 5px 15px 0 rgba(102, 102, 102, 0.1);
+    -webkit-transition: width .12s ease-out, height .12s ease-out;
+    transition: width .12s ease-out, height .12s ease-out;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.msg .dot {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #b0e9e0;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-animation: dotZoomIn 1.4s infinite;
+    animation: dotZoomIn 1.4s infinite;
+}
+
+.msg .dot:first-child {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.msg .dot:nth-child(2) {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+.msg .dot + .dot {
+    margin-left: 5px;
+}
+
+.msg-bounce-in-left {
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-animation: msgBounceIn .4s;
+    /* animation: msgBounceIn .4s;
+     */
+}
+
+.msg-bounce-in-right {
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-animation: msgBounceIn .4s;
+    animation: msgBounceIn .4s;
+}
+
+@media (max-width: 480px) {
+    .msg {
+        font-size: 15px;
+    }
+
+}
+
+.msg-left .msg {
+    -webkit-border-radius: 0 20px 20px 20px;
+    border-radius: 0 20px 20px 20px;
+}
+
+.msg-right .msg {
+    float: right;
+    color: white;
+    background: darkgray;
+    -webkit-border-radius: 20px 20px 0 20px;
+    border-radius: 20px 20px 0 20px;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(102, 102, 102, 0.15);
+    box-shadow: 5px 5px 15px 0 rgba(102, 102, 102, 0.15);
+}
+
+@-webkit-keyframes msgBounceIn {
+    from, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+    }
+    75% {
+        -webkit-transform: scale(0.98);
+        transform: scale(0.98);
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes msgBounceIn {
+    from, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+    }
+    75% {
+        -webkit-transform: scale(0.98);
+        transform: scale(0.98);
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes dotZoomIn {
+    from, 40%, 80%, 100% {
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+    }
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    80% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+@keyframes dotZoomIn {
+    from, 40%, 80%, 100% {
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+    }
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    80% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+.option {
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px;
+    background-color: teal;
+    font-size: 14px;
+
+}
+
+.option:hover {
+    background-color: grey;
+}
+
+.msg-right .option {
+    float: right;
+}
+
+
+
+
+/* Stage 0 buttons */
+
+.button1{
+    background-color: dimgrey;
+    color: #fff;
+    width: 180px;
+    height: 40px;
+    margin: 10px;
+}
+
+.buttonD{
+    background-color: #4D717A;
+    color: #fff;
+     width: 180px;
+     height: 40px;
+     margin: 10px;
+ }
+
+.buttonS{
+    background-color: #3F4763;
+    color: #fff;
+    width: 180px;
+    height: 40px;
+    margin: 10px;
+}
+
+.btn-right {
+    float:right;
+}
+.btn-left {
+    float:left;
+}
+label {
+    margin: 30px;
+
+}
+
+h5 {
+    color: dimgrey;
+    text-transform: uppercase;
+    margin-top: 30px;
+    line-height: 90%;
+}
+
+.user-description{
+    margin-top: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 17px;
+}
+
+.container2{
+    width: 100%;
+    height: 99%;
+    overflow: auto;
+    padding-right: 15px;
+
+}
+

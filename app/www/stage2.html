@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <script src="./js/canvasjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link href="./css/roundslider.min.css" rel="stylesheet"/>
+
+    <script src="./js/roundslider.min.js"></script>
+
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/stage2.css">
+
+    <title>Stage 2</title>
+</head>
+<body><header>
+<nav class="navbar navbar-expand-md navbar-light fixed-top">
+    <img src="images/yh-logo.png" width="200">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+
+    </div>
+</nav></header>
+
+
+<main class="container-fluid">
+    <div class="stage">
+
+    </div>
+
+    <div class="row page-content page-background">
+        <div class="col-sm-6 col-md-4 col-lg-3 robot-section">
+            <div class="robot-content-top">
+                <div id="messageContainer"></div>
+            </div>
+            <div class="robot-content-bottom text-center">
+                <img id="robo-image" alt="avatar" class="avatar-img">
+                <div class="user-description">
+                    <h4>Your personal financial advisor</h4>
+                </div>
+                <!--<div class="user-description">-->
+                <!--&lt;!&ndash;<h3 style="margin-top: 30px;">Ethan</h3>&ndash;&gt;-->
+                <!--&lt;!&ndash;<h5>Your personal financial advisor</h5>&ndash;&gt;-->
+                <!--</div>-->
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-8 col-lg-9 chat-section ml-sm-auto">
+            <!--<div class="chat-position-holder"></div>-->
+
+            <div id="demo">
+                <div class="chat-background">
+                <div class="chat-content text-center">
+                    <div id="chartContainer"></div>
+                </div>
+            </div>
+
+            <div class="row"  style="margin-top: 2.5rem;">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="slide-container">
+                        <h3></h3>
+                        <!--<input type="range" min="1" max="100" value="50" class="slider" id="mySlider">-->
+                        <div id="slider"></div>
+                        <button class="btn" onclick="confirm()">Confirm</button>
+
+                    </div>
+                    <div class="legendDiv">
+                    <ul class="legend">
+
+                    <li><span class="robo"></span> Robot Advisor</li>
+                        <li><span class="savings"></span> Savings Account</li>
+
+                    </ul></div>
+                </div>
+                <div class="col-sm-6 col-md-8 col-lg-9">
+                    <div class="dashboard">
+                        <h4 class="text-center">Summary</h4>
+                        <hr class="titleHr">
+
+                        <table class="table table-hover table-borderless" style="margin-top: 20px;">
+                            <thead>
+                            <tr>
+                                <th>Net Asset Value</th>
+                                <th>Past 1 month</th>
+                                <th>Past 3 months</th>
+                                <th>Past 6 months</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Your portfolio</td>
+                                <td id="1m-user"></td>
+                                <td id="3m-user"></td>
+                                <td id="6m-user"></td>
+                            </tr>
+                            <tr>
+                                <td>100% invested in robo-advisor</td>
+                                <td id="1m-robo"></td>
+                                <td id="3m-robo"></td>
+                                <td id="6m-robo"></td>
+                            </tr>
+                            <tr>
+                                <td>100% invested in savings account</td>
+                                <td id="1m-base"></td>
+                                <td id="3m-base"></td>
+                                <td id="6m-base"></td>
+                            </tr>
+                            </tbody>
+                        </table> <h6>Deposit: <span id="deposit"></span></h6><br>
+                        <h6>Net Asset Value: <span id="total-return"></span></h6>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        <div id="demo-eval" style="display:none">
+
+
+
+            <!--   <p>
+                   Now you have worked with your robo-advisor <span id="robo-name"></span> for a while,
+                   how do you think of its performance so far?
+                   Please use the following slider to indicate your answer (0 = poor, 10 = excellent).
+               </p>
+               <div class="mark-bar-region">
+                   <div class="mark-bar" style="background-color: #cc0000">Poor - Average</div>
+                   <div class="mark-bar" style="background-color:darkorange">Average - Good</div>
+                   <div class="mark-bar" style="background-color:darkgreen">Good - Excellent</div>
+               </div>
+               <!--<input type="range" min="1" max="10" value="5" class="slider" id="performance_slider">
+            <div class="slide-container">
+            <div id="performance-slider"></div>
+            <p>Performance value: <span id="performance_value" style="font-weight: bold"></span></p>
+
+            <button class="btn" onclick="save()">Finish</button>-->
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+    </div>
+
+
+</main><div class="footer">
+    <div class="progress_container">
+        <div class="progress progress-danger
+     progress-striped active">
+            <div class="bar"
+                 style="width: 50%;">50%</div>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/stage2.js"></script>
+</body>
+</html>
